@@ -1,0 +1,9 @@
+[Unit]
+Description=VPBank gateway retention
+[Service]
+Type=oneshot
+User=vpbgw
+Group=vpbgw
+Environment=VPG_CONFIG=/etc/vpb-gateway/config.toml
+ExecStart=/opt/vpb-gateway/.venv/bin/vpb-gateway prune
+UMask=0077

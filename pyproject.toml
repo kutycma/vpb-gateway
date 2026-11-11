@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools==84.2.1"]
+build-backend = "setuptools.build_meta"
+[project]
+name = "vpb-gateway"
+version = "0.1.0"
+license = "GPL-3.0-only"
+requires-python = ">=3.11"
+dependencies = ["fastapi==0.162.2", "uvicorn==0.54.0", "httpx==0.28.1", "cryptography==50.0.2", "firebase-messaging==0.4.5"]
+[project.optional-dependencies]
+test = ["pytest", "pytest-asyncio", "respx"]
+[project.scripts]
+vpb-gateway = "vpb_gateway.cli:main"
+[tool.setuptools.packages.find]
+include = ["vpb_gateway*"]
+[tool.setuptools.package-data]
+vpb_gateway = ["static/*.html"]
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "function"

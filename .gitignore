@@ -1,0 +1,17 @@
+.venv/
+logs/
+.pytest_cache/
+__pycache__/
+build/
+*.egg-info/
+*.db
+*.db-*
+state.json
+*secrets*
+.env*
+security-audit-review.log
+
+*.pem
+*.key
+*.log
+*.sqlite

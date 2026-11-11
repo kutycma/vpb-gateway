@@ -1,0 +1,30 @@
+[Unit]
+Description=VPBank gateway
+After=network-online.target
+Wants=network-online.target
+[Service]
+User=vpbgw
+Group=vpbgw
+Environment=VPG_CONFIG=/etc/vpb-gateway/config.toml
+ExecStart=/opt/vpb-gateway/.venv/bin/vpb-gateway run
+Restart=always
+RestartSec=5
+MemoryMax=150M
+NoNewPrivileges=yes
+ProtectSystem=strict
+ReadWritePaths=/var/lib/vpb-gateway
+PrivateTmp=yes
+UMask=0077
+CapabilityBoundingSet=
+RestrictAddressFamilies=AF_INET AF_INET6 AF_UNIX
+ProtectHome=yes
+PrivateDevices=yes
+SystemCallFilter=@system-service
+LockPersonality=yes
+RestrictNamespaces=yes
+ProtectKernelTunables=yes
+ProtectKernelModules=yes
+ProtectKernelLogs=yes
+ProtectControlGroups=yes
+[Install]
+WantedBy=multi-user.target

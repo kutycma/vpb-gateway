@@ -1,0 +1,7 @@
+[Unit]
+Description=Daily gateway SQLite backup
+[Service]
+Type=oneshot
+User=vpbgw
+ExecStart=/opt/vpb-gateway/backup.sh
+UMask=0077

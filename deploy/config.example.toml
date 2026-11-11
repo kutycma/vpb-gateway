@@ -1,0 +1,29 @@
+[server]
+host = "127.0.0.1"
+port = 8080
+[storage]
+db_path = "/var/lib/vpb-gateway/gateway.db"
+state_path = "/var/lib/vpb-gateway/state.json"
+[vpbank]
+base_url = "https://neo.vpbank.com.vn"
+account_number = "all"
+[fetch]
+safety_poll_seconds = 900
+poll_when_fcm_down_seconds = 60
+followup_delays = [3,8]
+min_fetch_interval_seconds = 2
+bootstrap = "ignore"
+[routing]
+route_outgoing = false
+[auth]
+admin_token_hash = ""
+unmatched_token_hash = ""
+[alerts]
+fcm_down_alert_minutes = 10
+alert_on_unmatched = true
+alert_after_failures = 3
+# Gửi một tin Telegram cho mỗi giao dịch mới (cần [telegram] bên dưới)
+notify_transactions = true
+[telegram]
+bot_token = ""
+chat_id = ""
